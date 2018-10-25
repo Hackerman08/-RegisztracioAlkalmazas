@@ -41,6 +41,16 @@ namespace RegisztracioAlkalmazas
 
             sw.WriteLine(label4.Text + " " + listBox1.Text);
             sw.Close();
+
+          
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            StreamReader sr = new StreamReader(Application.StartupPath + "\\Mentés\\" + textBox1.Text + ".txt");
+            richTextBox1.Text = sr.ReadToEnd();
+            sr.Close();
+
         }
     }
 }
