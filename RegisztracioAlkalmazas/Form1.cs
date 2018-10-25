@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace RegisztracioAlkalmazas
 {
@@ -22,6 +23,24 @@ namespace RegisztracioAlkalmazas
         private void button1_Click(object sender, EventArgs e)
         {
             listBox1.Items.Add(textBox3.Text);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            StreamWriter sw = new StreamWriter(Application.StartupPath + "\\Mentés\\" + textBox1.Text + ".txt");
+            sw.WriteLine(label1.Text + " " + textBox1.Text);
+            sw.WriteLine(label2.Text + " " + textBox2.Text);
+            if (radioButton1.Checked == true)
+            {
+                sw.WriteLine("Neme: Férfi");
+            }
+            else if (radioButton2.Checked == true)
+            {
+                sw.WriteLine("Neme: Nő");
+            }
+
+            sw.WriteLine(label4.Text + " " + listBox1.Text);
+            sw.Close();
         }
     }
 }
